@@ -80,28 +80,18 @@ export function AboutSection() {
             className="space-y-6"
           >
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-100 to-slate-200 aspect-[4/5]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Heart className="w-24 h-24 text-emerald-600/30" />
-              </div>
-              {/* Image placeholder - will be replaced with actual image */}
               <img 
-                src="/about-nahid-1.jpg" 
+                src="/about-nahid-1.png" 
                 alt="Nahid Islam"
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                className="w-full h-full object-cover"
               />
             </div>
 
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-200 to-emerald-100 aspect-[4/3]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Lightbulb className="w-24 h-24 text-emerald-600/30" />
-              </div>
-              {/* Image placeholder - will be replaced with actual image */}
               <img 
-                src="/about-nahid-2.jpg" 
+                src="/about-nahid-2.png" 
                 alt="Nahid Islam Leadership"
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                className="w-full h-full object-cover"
               />
             </div>
           </motion.div>

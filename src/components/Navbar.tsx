@@ -7,7 +7,7 @@ const menuItems = [
   { labelKey: 'nav.vision', href: '/#vision', isRoute: false },
   { labelKey: 'nav.platform', href: '/#platform', isRoute: false },
   { labelKey: 'nav.about', href: '/about', isRoute: true },
-  { labelKey: 'nav.news', href: '/#news', isRoute: false },
+  { labelKey: 'nav.news', href: '/news', isRoute: true },
   { labelKey: 'nav.contact', href: '/#contact', isRoute: false }
 ];
 
@@ -22,15 +22,19 @@ export function Navbar() {
           {/* Logo - Left Side */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <span className="text-white text-lg sm:text-xl tracking-wider font-bold">NI</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white shadow-md group-hover:scale-105 transition-transform">
+                <img 
+                  src="/logo.png" 
+                  alt="Nahid Islam Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="hidden sm:block">
                 <div className="text-slate-800 text-sm tracking-wider leading-tight font-semibold">
                   {language === 'en' ? 'NAHID ISLAM' : 'নাহিদ ইসলাম'}
                 </div>
                 <div className="text-emerald-600 text-xs tracking-[0.2em] font-medium">
-                  {language === 'en' ? 'NCP CONVENER' : 'এনসিপি আহবায়ক'}
+                  {language === 'en' ? 'DHAKA-11' : 'ঢাকা-১১'}
                 </div>
               </div>
             </Link>

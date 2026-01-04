@@ -4,6 +4,7 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
+import News from './pages/News';
 
 function AppContent() {
   const { language } = useLanguage();
@@ -24,6 +25,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </div>
     </Router>
