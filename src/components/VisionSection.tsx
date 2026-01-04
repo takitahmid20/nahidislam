@@ -68,10 +68,10 @@ const getColorClasses = (color: string) => {
 export function VisionSection() {
   const { t } = useLanguage();
   return (
-    <section id="vision" className="relative min-h-screen bg-slate-50 py-16 sm:py-24 lg:py-32 px-4 sm:px-6 overflow-hidden">
+    <section id="vision" className="relative min-h-screen bg-slate-50 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header - Dynamic Asymmetry Layout */}
-        <div className="mb-12 sm:mb-20 lg:mb-32">
+        <div className="mb-10 sm:mb-14 lg:mb-20">
           {/* Small label - top left */}
           <div className="flex items-center gap-2 text-emerald-600 tracking-[0.3em] text-xs sm:text-sm mb-6 sm:mb-8">
             <div className="w-12 h-px bg-emerald-600" />
@@ -81,7 +81,7 @@ export function VisionSection() {
           {/* Main heading - offset layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
             <div className="lg:col-span-7">
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.9]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.9]">
                 <span className="text-slate-900">{t('vision.title.new')}</span>
                 <br />
                 <span className="text-green-600">{t('vision.title.bangladesh')}</span>
@@ -91,7 +91,7 @@ export function VisionSection() {
             </div>
             
             <div className="lg:col-span-5 flex items-end">
-              <p className="text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                 {t('vision.subtitle')}
               </p>
             </div>

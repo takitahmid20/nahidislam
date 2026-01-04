@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Languages } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const menuItems = [
-  { labelKey: 'nav.vision', href: '#vision' },
-  { labelKey: 'nav.platform', href: '#platform' },
-  { labelKey: 'nav.about', href: '#about' },
-  { labelKey: 'nav.news', href: '#news' },
-  { labelKey: 'nav.contact', href: '#contact' }
+  { labelKey: 'nav.vision', href: '/#vision', isRoute: false },
+  { labelKey: 'nav.platform', href: '/#platform', isRoute: false },
+  { labelKey: 'nav.about', href: '/about', isRoute: true },
+  { labelKey: 'nav.news', href: '/#news', isRoute: false },
+  { labelKey: 'nav.contact', href: '/#contact', isRoute: false }
 ];
 
 export function Navbar() {
@@ -20,7 +21,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo - Left Side */}
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                 <span className="text-white text-lg sm:text-xl tracking-wider font-bold">NI</span>
               </div>
@@ -32,20 +33,31 @@ export function Navbar() {
                   {language === 'en' ? 'NCP CONVENER' : 'এনসিপি আহবায়ক'}
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu - Right Side */}
           <div className="hidden md:flex items-center gap-8 lg:gap-12">
             {menuItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="text-slate-600 hover:text-emerald-600 tracking-wide text-sm lg:text-base transition-colors relative group font-medium"
-              >
-                {t(item.labelKey)}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300" />
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={index}
+                  to={item.href}
+                  className="text-slate-600 hover:text-emerald-600 tracking-wide text-sm lg:text-base transition-colors relative group font-medium"
+                >
+                  {t(item.labelKey)}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300" />
+                </Link>
+              ) : (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="text-slate-600 hover:text-emerald-600 tracking-wide text-sm lg:text-base transition-colors relative group font-medium"
+                >
+                  {t(item.labelKey)}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300" />
+                </a>
+              )
             ))}
             
             {/* Language Switcher */}
@@ -96,14 +108,25 @@ export function Navbar() {
         <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-emerald-200/50">
           <div className="px-4 py-6 space-y-4">
             {menuItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-slate-600 hover:text-emerald-600 tracking-wide text-base py-2 transition-colors"
-              >
-                {t(item.labelKey)}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={index}
+                  to={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-slate-600 hover:text-emerald-600 tracking-wide text-base py-2 transition-colors"
+                >
+                  {t(item.labelKey)}
+                </Link>
+              ) : (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-slate-600 hover:text-emerald-600 tracking-wide text-base py-2 transition-colors"
+                >
+                  {t(item.labelKey)}
+                </a>
+              )
             ))}
             
             {/* Mobile Language Switcher */}

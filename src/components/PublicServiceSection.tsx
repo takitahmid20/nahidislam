@@ -31,7 +31,7 @@ export function PublicServiceSection() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-32 lg:py-40 overflow-hidden bg-slate-50">
+    <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden bg-slate-50">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -39,7 +39,7 @@ export function PublicServiceSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 sm:mb-24"
+          className="text-center mb-12 sm:mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="h-px bg-green-600 w-24" />
@@ -49,13 +49,13 @@ export function PublicServiceSection() {
             <div className="h-px bg-green-600 w-24" />
           </div>
 
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-6">
             <span className="text-slate-900">{t('service.title.public')}</span>
             <br />
             <span className="text-green-600">{t('service.title.service')}</span>
           </h2>
 
-          <p className="text-slate-600 text-lg sm:text-xl max-w-3xl mx-auto">
+          <p className="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto">
             {t('service.subtitle')}
           </p>
         </motion.div>

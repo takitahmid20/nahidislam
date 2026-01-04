@@ -24,16 +24,34 @@ export function JulyRevolutionSection() {
           <div className="h-px bg-emerald-600 flex-1" />
         </motion.div>
 
-        {/* Main Heading - Asymmetric Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16 sm:mb-24">
+        {/* Main Heading - 50/50 Layout with Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 sm:mb-24 items-center">
+          {/* Left Side - Large Overflowing Image */}
           <motion.div
-            className="lg:col-span-7"
+            className="relative lg:-mr-20"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.9] mb-6">
+            <div className="relative rounded-3xl overflow-hidden h-full min-h-[500px] lg:min-h-[700px]">
+              <img
+                src="/ni2.png"
+                alt="Nahid Islam July Revolution"
+                className="w-full h-full object-cover scale-110"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right Side - 50% Content */}
+          <motion.div
+            className="flex flex-col justify-center lg:pl-8"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.9] mb-6">
               <span className="text-slate-900">{t('july.title.the')}</span>
               <br />
               <span className="text-emerald-600">{t('july.title.architect')}</span>
@@ -41,25 +59,17 @@ export function JulyRevolutionSection() {
               <span className="text-green-600">{t('july.title.change')}</span>
             </h2>
 
-            <p className="text-slate-600 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
               {t('july.subtitle')}
             </p>
-          </motion.div>
-
-          <motion.div
-            className="lg:col-span-5 flex items-center"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+            {/* Icon Cards */}
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-emerald-100 border-2 border-emerald-600 flex items-center justify-center flex-shrink-0">
                   <Users className="size-6 text-emerald-600" />
                 </div>
                 <div>
-                  <h3 className="text-slate-900 text-xl mb-2">{t('july.role.title')}</h3>
+                  <h3 className="text-slate-900 text-lg font-semibold mb-2">{t('july.role.title')}</h3>
                   <p className="text-slate-600 text-sm">{t('july.role.desc')}</p>
                 </div>
               </div>
@@ -69,7 +79,7 @@ export function JulyRevolutionSection() {
                   <Shield className="size-6 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-slate-900 text-xl mb-2">{t('july.movement.title')}</h3>
+                  <h3 className="text-slate-900 text-lg font-semibold mb-2">{t('july.movement.title')}</h3>
                   <p className="text-slate-600 text-sm">{t('july.movement.desc')}</p>
                 </div>
               </div>

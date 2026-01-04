@@ -28,7 +28,7 @@ export function CoreValuesSection() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-32 lg:py-40 overflow-hidden bg-white">
+    <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden bg-white">
       {/* Animated background elements */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -37,7 +37,7 @@ export function CoreValuesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 sm:mb-24"
+          className="mb-12 sm:mb-16"
         >
           <div className="flex items-center gap-3 mb-8">
             <Scale className="size-6 text-emerald-600" />
@@ -49,7 +49,7 @@ export function CoreValuesSection() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
             <motion.h2
-              className="text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.95]"
+              className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.95]"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -63,7 +63,7 @@ export function CoreValuesSection() {
             </motion.h2>
 
             <motion.p
-              className="text-slate-600 text-lg sm:text-xl leading-relaxed"
+              className="text-slate-600 text-base sm:text-lg leading-relaxed"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -110,11 +110,11 @@ export function CoreValuesSection() {
                         <Icon className="size-10 text-white" />
                       </div>
 
-                      <h3 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-4 leading-tight">
+                      <h3 className="text-2xl sm:text-3xl text-slate-900 mb-4 leading-tight">
                         {t(value.titleKey)}
                       </h3>
 
-                      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                         {t(value.descKey)}
                       </p>
                     </div>

@@ -42,7 +42,7 @@ export function CallToActionSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-10 sm:mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,19 +55,19 @@ export function CallToActionSection() {
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-tight mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight mb-6">
             <span className="text-slate-900">{t('cta.headline.part1')}</span>
             <br />
             <span className="text-emerald-600">{t('cta.headline.part2')}</span>
           </h2>
 
-          <p className="text-slate-600 text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
             {t('cta.subheadline')}
           </p>
         </motion.div>
 
         {/* Choice Comparison */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-10 sm:mb-12">
           {/* YES SIDE */}
           <motion.div
             className="relative group"
@@ -306,6 +306,27 @@ export function CallToActionSection() {
               {t('cta.closing')}
             </p>
           </div>
+        </motion.div>
+
+        {/* Footer Credit */}
+        <motion.div 
+          className="text-center mt-16 pb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <p className="text-slate-600 text-sm">
+            Designed & Developed by{' '}
+            <a 
+              href="https://bynari.agency" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors underline"
+            >
+              Bynari Agency
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>

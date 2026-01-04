@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { VisionSection } from './components/VisionSection';
-import { JulyRevolutionSection } from './components/JulyRevolutionSection';
-import { PublicServiceSection } from './components/PublicServiceSection';
-import { CoreValuesSection } from './components/CoreValuesSection';
-import { FutureVisionSection } from './components/FutureVisionSection';
-import { CallToActionSection } from './components/CallToActionSection';
+import Home from './pages/Home';
+import About from './pages/About';
 
 function AppContent() {
   const { language } = useLanguage();
@@ -22,16 +18,15 @@ function AppContent() {
   }, [language]);
   
   return (
+    <Router>
       <div className="min-h-screen bg-white">
-      <Navbar />
-      <HeroSection />
-      <JulyRevolutionSection />
-      <PublicServiceSection />
-      <CoreValuesSection />
-      <VisionSection />
-      <FutureVisionSection />
-      <CallToActionSection />
-    </div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -1,23 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Target, TrendingUp, Facebook, Twitter, Instagram } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const candidateImage = '/Nahid-Islam.png';
+const backgroundImages = ['/bg.png', '/bg2.png', '/bg3.png'];
 
 export function HeroSection() {
   const { t } = useLanguage();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
   
   return (
     <section className="relative h-screen overflow-hidden bg-slate-50">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: 'url(/bg.png)' }}
-      ></div>
+      {/* Animated Background Image with Crossfade - No Flash */}
+      <div className="absolute inset-0">
+        <AnimatePresence initial={false}>
+          <motion.div 
+            key={currentImageIndex}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: 1,
+              scale: [1, 1.05, 1],
+            }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.5 },
+              scale: {
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
+          ></motion.div>
+        </AnimatePresence>
+      </div>
       
-      {/* Light overlay for text readability */}
-      <div className="absolute inset-0 bg-white/40"></div>
+      {/* Animated floating shapes */}
+      <motion.div
+        className="absolute top-20 left-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl"
+        animate={{
+          y: [0, -30, 0],
+          x: [0, 20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"
+        animate={{
+          y: [0, 30, 0],
+          x: [0, -20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
       
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px]"></div>

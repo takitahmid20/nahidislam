@@ -44,7 +44,7 @@ export function FutureVisionSection() {
           </div>
 
           <motion.h2
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.95] mb-8"
+            className="text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[0.95] mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -57,7 +57,7 @@ export function FutureVisionSection() {
           </motion.h2>
 
           <motion.p
-            className="text-slate-600 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed"
+            className="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -106,11 +106,11 @@ export function FutureVisionSection() {
                   <Rocket className="size-10 text-white" />
                 </motion.div>
 
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-6 leading-tight">
+                <h3 className="text-2xl sm:text-3xl text-slate-900 mb-6 leading-tight">
                   {t('future.electoral.title')}
                 </h3>
 
-                <p className="text-slate-600 text-lg sm:text-xl leading-relaxed mb-8">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
                   {t('future.electoral.desc')}
                 </p>
 
