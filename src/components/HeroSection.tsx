@@ -25,7 +25,7 @@ export function HeroSection() {
         <AnimatePresence initial={false}>
           <motion.div 
             key={currentImageIndex}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-top bg-no-repeat"
             style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
             initial={{ opacity: 0 }}
             animate={{ 
