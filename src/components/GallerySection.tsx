@@ -22,63 +22,35 @@ export function GallerySection() {
       category: 'movement',
       titleKey: 'gallery.item1.title',
       descKey: 'gallery.item1.desc',
-      image: '/ni2.png',
+      image: '/portfolio/1.jpg',
     },
     {
       id: 2,
       category: 'leadership',
       titleKey: 'gallery.item2.title',
       descKey: 'gallery.item2.desc',
-      image: '/Nahid-Islam.png',
+      image: '/portfolio/2.jpg',
     },
     {
       id: 3,
       category: 'people',
       titleKey: 'gallery.item3.title',
       descKey: 'gallery.item3.desc',
-      image: '/ni2.png',
+      image: '/portfolio/3.jpg',
     },
     {
       id: 4,
       category: 'movement',
       titleKey: 'gallery.item4.title',
       descKey: 'gallery.item4.desc',
-      image: '/Nahid-Islam.png',
+      image: '/portfolio/4.jpg',
     },
     {
       id: 5,
       category: 'events',
       titleKey: 'gallery.item5.title',
       descKey: 'gallery.item5.desc',
-      image: '/ni2.png',
-    },
-    {
-      id: 6,
-      category: 'leadership',
-      titleKey: 'gallery.item6.title',
-      descKey: 'gallery.item6.desc',
-      image: '/Nahid-Islam.png',
-    },
-    {
-      id: 7,
-      category: 'people',
-      titleKey: 'gallery.item7.title',
-      descKey: 'gallery.item7.desc',
-      image: '/ni2.png',
-    },
-    {
-      id: 8,
-      category: 'events',
-      titleKey: 'gallery.item8.title',
-      descKey: 'gallery.item8.desc',
-      image: '/Nahid-Islam.png',
-    },
-    {
-      id: 9,
-      category: 'movement',
-      titleKey: 'gallery.item9.title',
-      descKey: 'gallery.item9.desc',
-      image: '/ni2.png',
+      image: '/portfolio/5.jpg',
     },
   ];
 
@@ -103,7 +75,7 @@ export function GallerySection() {
   };
 
   return (
-    <section className="relative py-16 bg-slate-50 overflow-hidden">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -112,7 +84,7 @@ export function GallerySection() {
         }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative">
+      <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
         <div className="text-center mb-12">
           <motion.div
@@ -187,26 +159,25 @@ export function GallerySection() {
                 className="group cursor-pointer"
                 onClick={() => setSelectedImage(item.id)}
               >
-                <div className="relative overflow-hidden rounded-2xl bg-slate-200 aspect-[4/3] shadow-lg hover:shadow-2xl transition-all duration-300">
-                  {/* Actual Image */}
-                  <img 
-                    src={item.image} 
-                    alt={t(item.titleKey)}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                <div className="relative overflow-hidden rounded-2xl bg-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300">
+                  <div className="w-full h-64 md:h-72 lg:h-80 relative">
+                    <img 
+                      src={item.image} 
+                      alt={t(item.titleKey)}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
                   
-                  {/* Image overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white font-bold text-xl mb-2">
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <h3 className="text-white font-bold text-xl mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       {t(item.titleKey)}
                     </h3>
-                    <p className="text-white/90 text-sm">
+                    <p className="text-white/90 text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                       {t(item.descKey)}
                     </p>
                   </div>
-
-                  {/* Zoom effect overlay */}
-                  <div className="absolute inset-0 bg-emerald-600/0 group-hover:bg-emerald-600/10 transition-colors duration-300" />
                 </div>
               </motion.div>
             ))}
@@ -226,76 +197,112 @@ export function GallerySection() {
         )}
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Modern Lightbox Modal */}
       <AnimatePresence>
         {selectedImage !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-slate-900/95 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-            >
-              <X className="w-6 h-6 text-white" />
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handlePrevious();
-              }}
-              className="absolute left-4 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleNext();
-              }}
-              className="absolute right-4 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-
+          <>
+            {/* Black Overlay Background */}
             <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              className="max-w-5xl w-full"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100]"
+              onClick={() => setSelectedImage(null)}
+            />
+
+            {/* Close Button */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed top-6 right-6 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all z-[110] group"
+              aria-label="Close gallery"
             >
-              {(() => {
-                const item = galleryItems.find(i => i.id === selectedImage);
-                if (!item) return null;
-                
-                return (
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-                    <div className="relative bg-slate-200 aspect-[16/10]">
-                      <img 
-                        src={item.image} 
-                        alt={t(item.titleKey)}
-                        className="w-full h-full object-cover"
-                      />
+              <X className="w-7 h-7 text-white" />
+            </motion.button>
+
+            {/* Navigation Buttons */}
+            {filteredItems.length > 1 && (
+              <>
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrevious();
+                  }}
+                  className="fixed left-6 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all z-[110]"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-7 h-7 text-white" />
+                </motion.button>
+
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                  className="fixed right-6 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all z-[110]"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-7 h-7 text-white" />
+                </motion.button>
+              </>
+            )}
+
+            {/* Image Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed inset-0 flex items-center justify-center p-4 md:p-8 z-[105] pointer-events-none"
+            >
+              <div 
+                className="max-w-7xl w-full pointer-events-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {(() => {
+                  const item = galleryItems.find(i => i.id === selectedImage);
+                  if (!item) return null;
+                  
+                  return (
+                    <div className="bg-white/95 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl">
+                      {/* Image */}
+                      <div className="relative bg-slate-100">
+                        <img 
+                          src={item.image} 
+                          alt={t(item.titleKey)}
+                          className="w-full max-h-[75vh] object-contain"
+                        />
+                      </div>
+                      
+                      {/* Info Section */}
+                      <div className="p-6 md:p-8 bg-gradient-to-b from-white to-slate-50">
+                        <div className="max-w-3xl mx-auto text-center">
+                          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+                            {t(item.titleKey)}
+                          </h3>
+                          <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+                            {t(item.descKey)}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="p-8">
-                      <h3 className="text-3xl font-bold text-slate-800 mb-3">
-                        {t(item.titleKey)}
-                      </h3>
-                      <p className="text-lg text-slate-600">
-                        {t(item.descKey)}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })()}
+                  );
+                })()}
+              </div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
     </section>
