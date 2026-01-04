@@ -35,7 +35,7 @@ const translations = {
     'hero.description.student': 'Student Leader.',
     'hero.description.leader': 'Revolutionary.',
     'hero.description.candidate': 'Convener of National Citizens Party (NCP).',
-    'hero.independent': 'INDEPENDENT',
+    'hero.independent': 'NATIONAL CITIZENS PARTY (NCP)',
     'hero.constituency': 'Dhaka-11',
     
     // Vision Section
@@ -194,7 +194,7 @@ const translations = {
     'hero.description.student': 'ছাত্র নেতা।',
     'hero.description.leader': 'বিপ্লবী।',
     'hero.description.candidate': 'জাতীয় নাগরিক পার্টি (এনসিপি) আহবায়ক।',
-    'hero.independent': 'স্বতন্ত্র প্রার্থী',
+    'hero.independent': 'জাতীয় নাগরিক পার্টি (এনসিপি)',
     'hero.constituency': 'ঢাকা-১১',
     
     // Vision Section
